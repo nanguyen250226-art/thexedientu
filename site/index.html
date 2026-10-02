@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102e39">
+  <meta name="description" content="Mô phỏng hệ thống thẻ xe điện tử Đại học Đông Á.">
+  <title>Thẻ xe điện tử | Đại học Đông Á</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Thẻ xe điện tử, về trang đầu">
+      <span class="brand-mark" aria-hidden="true">ĐA</span>
+      <span class="brand-copy"><strong>ĐÔNG Á</strong><small>THẺ XE ĐIỆN TỬ</small></span>
+    </a>
+    <span class="environment"><span class="environment-dot"></span> MÔ PHỎNG</span>
+  </header>
+
+  <main>
+    <section class="screen access-screen is-active" id="screen-access" aria-labelledby="access-title">
+      <div class="access-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> CAMPUS MOBILITY</p>
+        <h1 id="access-title">Đi học<br><span>nhẹ nhàng hơn.</span></h1>
+        <p class="intro">Một chạm để vào cổng. Quản lý thẻ xe và số dư của bạn ngay trên điện thoại.</p>
+      </div>
+      <div class="access-options">
+        <button class="access-option qr-option" id="qr-access" type="button">
+          <span class="option-icon qr-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="option-copy"><strong>Mô phỏng Quét mã QR sau thẻ</strong><small>Dùng tài khoản sinh viên mẫu</small></span>
+          <span class="option-arrow" aria-hidden="true">↗</span>
+        </button>
+        <button class="access-option direct-option" id="direct-access" type="button">
+          <span class="option-icon person-icon" aria-hidden="true">↗</span>
+          <span class="option-copy"><strong>Truy cập trực tiếp</strong><small>Đăng nhập bằng tài khoản của bạn</small></span>
+          <span class="option-arrow" aria-hidden="true">↗</span>
+        </button>
+        <p class="access-note"><span aria-hidden="true">i</span> Hồ sơ được quản lý an toàn qua máy chủ của trường.</p>
+      </div>
+      <div class="access-art" aria-hidden="true">
+        <div class="art-ring ring-one"></div><div class="art-ring ring-two"></div>
+        <div class="art-card"><span class="art-card-chip"></span><span class="art-card-mark">ĐA</span><span class="art-card-label">STUDENT<br>PASS</span><span class="art-card-spark">✳</span></div>
+        <span class="art-orbit orbit-top">84A7F2D1</span><span class="art-orbit orbit-bottom">TAP TO ENTER</span>
+      </div>
+    </section>
+
+    <section class="screen login-screen" id="screen-login" aria-labelledby="login-title" hidden>
+      <button class="back-button" type="button" data-go="access"><span aria-hidden="true">←</span> Quay lại</button>
+      <div class="login-panel">
+        <p class="eyebrow"><span class="eyebrow-line"></span> CỔNG SINH VIÊN</p>
+        <h1 id="login-title">ĐĂNG NHẬP HỆ THỐNG THẺ XE ĐIỆN TỬ - ĐẠI HỌC ĐÔNG Á</h1>
+        <p class="login-subtitle">Đăng nhập để quản lý thẻ xe và giao dịch của bạn.</p>
+        <form id="login-form" novalidate>
+          <label class="field-label" for="student-id">Mã số sinh viên</label>
+          <input id="student-id" name="studentId" type="text" placeholder="Nhập mã số sinh viên" autocomplete="username" required>
+          <label class="field-label" for="password">Mật khẩu</label>
+          <div class="password-wrap">
+            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" autocomplete="current-password" required>
+            <button class="password-toggle" type="button" id="toggle-password" aria-label="Hiện mật khẩu">Hiện</button>
+          </div>
+          <label class="remember-row" for="remember-login"><input id="remember-login" type="checkbox"><span class="custom-check" aria-hidden="true"></span><span>Ghi nhớ đăng nhập</span></label>
+          <p class="form-error" id="login-error" role="alert" hidden></p>
+          <button class="primary-button login-submit" type="submit">Đăng nhập <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="demo-credentials">Dùng MSSV và mật khẩu do nhà trường cấp.</p>
+      </div>
+      <aside class="login-aside" aria-label="Thông tin thẻ sinh viên">
+        <div class="aside-stamp">ĐẠI HỌC<br>ĐÔNG Á</div>
+        <div class="aside-content"><span class="aside-kicker">YOUR CAMPUS, IN MOTION</span><h2>Mỗi hành trình<br>bắt đầu bằng<br>một chạm.</h2><span class="aside-rule"></span><p>Thẻ xe điện tử<br>Đơn giản · An toàn · Tiện lợi</p></div>
+        <span class="aside-watermark">ĐA</span>
+      </aside>
+    </section>
+
+    <section class="screen dashboard-screen" id="screen-dashboard" aria-labelledby="dashboard-title" hidden>
+      <div class="dashboard-heading">
+        <div><p class="eyebrow"><span class="eyebrow-line"></span> KHÔNG GIAN SINH VIÊN</p><h1 id="dashboard-title">Xin chào, <span id="student-name">Sinh viên</span></h1><p class="student-code">MSSV <strong id="dashboard-student-id">—</strong></p></div>
+        <button class="logout-button" id="logout-button" type="button" aria-label="Đăng xuất">Đăng xuất <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="dashboard-grid">
+        <section class="balance-panel" aria-label="Số dư ví thẻ xe">
+          <div class="balance-top"><span>SỐ DƯ VÍ THẺ XE</span><span class="wallet-symbol" aria-hidden="true">₫</span></div>
+          <p class="balance-amount" id="balance-amount"><span>65.000</span><small>đ</small></p>
+          <div class="balance-footer"><span><i></i> Ví đang hoạt động</span><span id="ride-count">LƯỢT QUẸT: 0</span></div>
+          <div class="balance-decoration" aria-hidden="true"></div>
+        </section>
+        <section class="card-status-panel" aria-labelledby="card-status-title">
+          <div class="panel-heading"><div><p class="eyebrow">THẺ CỦA BẠN</p><h2 id="card-status-title">Thẻ xe điện tử</h2></div><span class="status-pill"><i></i> Đang hoạt động</span></div>
+          <div class="card-identity"><span class="card-mini-mark" aria-hidden="true">ĐA</span><div><span>MÃ SỐ THẺ</span><strong>UID: 84A7F2D1</strong></div><span class="contactless" aria-label="Thẻ không tiếp xúc">)))</span></div>
+          <div class="card-bottom"><span>ĐẠI HỌC ĐÔNG Á</span><span>STUDENT PASS <b>•••• 2611</b></span></div>
+        </section>
+      </div>
+      <section class="history-section" aria-labelledby="history-title">
+        <div class="section-heading"><div><p class="eyebrow">HOẠT ĐỘNG GẦN ĐÂY</p><h2 id="history-title">Lịch sử quẹt thẻ</h2></div><span class="history-period">MỚI NHẤT TRƯỚC</span></div>
+        <div class="history-scroll" tabindex="0" aria-label="Bảng lịch sử quẹt thẻ, cuộn ngang để xem đủ cột">
+          <table class="history-table">
+            <thead><tr><th scope="col">Thời gian</th><th scope="col">Loại hành động</th><th scope="col">Số tiền</th><th scope="col">Số dư sau quẹt</th></tr></thead>
+            <tbody id="ride-history-body"></tbody>
+          </table>
+        </div>
+      </section>
+      <div class="dashboard-action">
+        <p>Phí quẹt thẻ: <strong>500 đ/lượt</strong> · 1 chu kỳ vào/ra: <strong>1.000 đ</strong></p>
+        <div class="parking-controls">
+          <button class="primary-button ride-button entry-button" id="entry-button" type="button"><span aria-hidden="true">↓</span> Giả lập Quẹt thẻ VÀO bãi xe</button>
+          <button class="primary-button ride-button exit-button" id="exit-button" type="button"><span aria-hidden="true">↑</span> Giả lập Quẹt thẻ RA bãi xe</button>
+          <button class="primary-button topup-button" id="topup-button" type="button"><span class="plus-icon" aria-hidden="true">+</span> Nạp tiền vào tài khoản <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="ride-feedback" id="ride-feedback" role="alert" hidden></p>
+      </div>
+    </section>
+
+    <section class="screen payment-screen" id="screen-payment" aria-labelledby="payment-title" hidden>
+      <button class="back-button" type="button" data-go="dashboard"><span aria-hidden="true">←</span> Về tài khoản</button>
+      <div class="payment-layout">
+        <div class="payment-main">
+          <p class="eyebrow"><span class="eyebrow-line"></span> NẠP TIỀN VÍ THẺ XE</p>
+          <h1 id="payment-title">Nạp tiền<br><span>nhanh chóng.</span></h1>
+          <div class="payment-amount"><span>SỐ TIỀN THANH TOÁN</span><strong>50.000 <small>đ</small></strong></div>
+          <div class="payment-details"><span>NỘI DUNG CHUYỂN KHOẢN</span><strong id="payment-reference">MSSV NAP THE XE</strong><span>ĐƠN VỊ THỤ HƯỞNG</span><strong>ĐẠI HỌC ĐÔNG Á</strong></div>
+          <div class="simulation-note"><span aria-hidden="true">i</span><p>PayOS chưa được cấu hình. Số dư sẽ không thay đổi cho đến khi thanh toán được xác nhận từ máy chủ.</p></div>
+          <button class="primary-button simulate-button" id="simulate-payment" type="button" disabled><span aria-hidden="true">↗</span> Cổng PayOS chưa cấu hình</button>
+          <button class="secondary-button" id="cancel-payment" type="button">Hủy giao dịch</button>
+        </div>
+        <aside class="qr-panel">
+          <div class="qr-heading"><span class="bank-mark">ĐA</span><div><strong>ĐẠI HỌC ĐÔNG Á</strong><small>THANH TOÁN QUA PAYOS</small></div></div>
+          <div class="qr-code" id="mock-qr" role="img" aria-label="Mã QR mô phỏng, không dùng để thanh toán"><span class="qr-corner corner-tl"></span><span class="qr-corner corner-tr"></span><span class="qr-corner corner-bl"></span><span class="qr-center">ĐA</span></div>
+          <p class="qr-caption">Mã QR minh họa, chưa phát hành giao dịch</p><p class="qr-expiry">Thanh toán chưa khả dụng</p>
+          <div class="bank-strip"><span>NAPAS</span><span>Vietcombank</span><span>PAYOS</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="screen transfer-screen" id="screen-transfer" aria-labelledby="transfer-title" hidden>
+      <div class="transfer-content">
+        <p class="eyebrow"><span class="eyebrow-line"></span> PAYOS · CẬP NHẬT TRẠNG THÁI</p>
+        <h1 id="transfer-title">Đang xử lý<br><span>giao dịch của bạn.</span></h1>
+        <p class="transfer-amount">50.000 <small>đ</small> <span>·</span> Nạp vào ví thẻ xe</p>
+        <div class="flow-track" id="flow-track" aria-label="Tiến trình giao dịch">
+          <div class="flow-step" data-step="0"><span class="flow-icon">₫</span><div><strong>Tiền đến tài khoản trường</strong><small>Đại học Đông Á nhận khoản chuyển</small></div><span class="flow-state">Đang chờ</span></div>
+          <div class="flow-step" data-step="1"><span class="flow-icon">↔</span><div><strong>Ngân hàng xác nhận</strong><small>Ngân hàng gửi thông báo đến PayOS</small></div><span class="flow-state">Đang chờ</span></div>
+          <div class="flow-step" data-step="2"><span class="flow-icon">⌁</span><div><strong>PayOS gửi Webhook</strong><small>Sự kiện thanh toán được gửi về Server</small></div><span class="flow-state">Đang chờ</span></div>
+          <div class="flow-step" data-step="3"><span class="flow-icon">+</span><div><strong>Cập nhật số dư</strong><small>Server cộng tiền vào ví sinh viên</small></div><span class="flow-state">Đang chờ</span></div>
+        </div>
+        <div class="transfer-footer"><span class="transfer-spinner" aria-hidden="true"></span><span id="transfer-status" role="status">Đang kết nối với ngân hàng mô phỏng...</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>© 2026 ĐẠI HỌC ĐÔNG Á</span><span>HỆ THỐNG THẺ XE ĐIỆN TỬ <i></i> BẢN MÔ PHỎNG</span></footer>
+
+  <dialog class="password-dialog" id="password-dialog" aria-labelledby="password-dialog-title">
+    <form id="change-password-form" novalidate>
+      <div class="dialog-symbol" aria-hidden="true">!</div>
+      <p class="eyebrow">BẢO MẬT TÀI KHOẢN</p>
+      <h2 id="password-dialog-title">Tạo mật khẩu mới</h2>
+      <p class="dialog-description">Để kích hoạt tài khoản, vui lòng đổi mật khẩu trước khi tiếp tục.</p>
+      <label class="field-label" for="new-password">Mật khẩu mới</label>
+      <input id="new-password" type="password" minlength="6" autocomplete="new-password" placeholder="Ít nhất 6 ký tự" required>
+      <label class="field-label" for="confirm-password">Xác nhận mật khẩu mới</label>
+      <input id="confirm-password" type="password" minlength="6" autocomplete="new-password" placeholder="Nhập lại mật khẩu mới" required>
+      <p class="form-error" id="password-error" role="alert" hidden></p>
+      <button class="primary-button" type="submit">Lưu mật khẩu mới <span aria-hidden="true">→</span></button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="success-toast" role="status" aria-live="polite" hidden><span class="toast-check" aria-hidden="true">✓</span><span><strong>Nạp tiền thành công</strong><small>Ví thẻ xe đã được cập nhật.</small></span></div>
+</body>
+</html>

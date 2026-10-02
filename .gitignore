@@ -1,0 +1,14 @@
+# Secrets and private student data must never enter the deploy repository.
+.env
+.env.*
+!.env.example
+/private/
+/index.html
+/script.js
+/style.css
+/public-demo/
+
+# Local tooling and anonymous one-hour Netlify Drop package.
+.netlify/
+node_modules/
+/public-demo.zip
